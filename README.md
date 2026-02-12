@@ -15,9 +15,9 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-## Usage
+## App
 
-### App
+### Usage and development
 
 1. Activate Python virtual environment
 2. Install dependencies:
@@ -32,7 +32,23 @@ pip install -r app/requirements.txt
 fastapi run app/main.py
 ```
 
-### Tools
+### Docker
+
+Dockerfile uses port 8000 by default.
+
+1. Build the Docker image:
+
+```bash
+docker build -t myapp:latest -f app/Dockerfile app/
+```
+
+2. Run the Docker container:
+
+```bash
+docker run --rm -p 8000:8000 myapp:latest
+```
+
+## Tools
 
 Install dependencies for tools:
 
@@ -42,7 +58,7 @@ pip install -r tools/requirements.txt
 
 Then run the tools as needed.
 
-#### tools/generate.py
+### tools/generate.py
 
 This script reads the Terraform configuration and generates tfvars file with default values for all variables.
 
